@@ -48,5 +48,20 @@ function runReciprocal() {
 }
 
 // TODO: Implement run your functions here
-
+document.addEventListener("keydown", function(event) {
+    const key = event.key;
+    
+    if (!isNaN(key) || key === ".") {
+        appendToDisplay(key); 
+    } else if (key === "+" || key === "-" || key === "*" || key === "/") {
+        appendToDisplay(key); 
+    } else if (key === "Enter") {
+        event.preventDefault(); 
+        calculateResult(); 
+    } else if (key === "Backspace") {
+        deleteLast(); 
+    } else if (key === "Escape") {
+        clearDisplay(); 
+    }
+});
 
